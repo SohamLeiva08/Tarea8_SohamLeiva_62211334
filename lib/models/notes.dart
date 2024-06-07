@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class Nota {
+class Note {
   String id;
   String descripcion;
   DateTime fecha;
   String estado;
   bool importante;
 
-  Nota({
+  Note({
     required this.id,
     required this.descripcion,
     required this.fecha,
@@ -15,9 +15,9 @@ class Nota {
     required this.importante,
   });
 
-  factory Nota.fromFirestore(DocumentSnapshot doc) {
+  factory Note.fromFirestore(DocumentSnapshot doc) {
     Map data = doc.data() as Map;
-    return Nota(
+    return Note(
       id: doc.id,
       descripcion: data['Descripcion'] ?? '',
       fecha: (data['Fecha'] as Timestamp).toDate(),
